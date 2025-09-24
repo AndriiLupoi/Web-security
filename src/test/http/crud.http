@@ -1,0 +1,41 @@
+### GET all users
+GET http://localhost:8080/api/v1/users
+
+### GET user by id
+GET http://localhost:8080/api/v1/users/68d3c3205aa5ac99c91a528c
+
+### DELETE ONE USER
+DELETE http://localhost:8080/api/v1/users/68d3c26d5aa5ac99c91a528a
+
+### CREATE ONE USER
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "userFirstName": "newUserFN",
+  "userLastName": "newUserLN",
+  "email": "newUserEmail@gmail.com",
+  "password": "11111111",
+  "nickname": "newUserNick"
+}
+### UPDATE ONE USER
+PUT http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "id": "68d3c28e5aa5ac99c91a528b",
+  "userFirstName": "Username",
+  "userLastName": "UserLastname",
+  "email": "userEmail@gmail.com",
+  "password": "11111111",
+  "nickname": "UserNick"
+}
+
+### GET HELLO USER
+GET http://localhost:8080/api/v1/users/hello/user
+
+### GET HELLO ADMIN
+GET http://localhost:8080/api/v1/users/hello/admin
+
+### GET HELLO UNKNOWN
+GET http://localhost:8080/api/v1/users/hello/unknown

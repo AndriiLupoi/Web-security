@@ -20,12 +20,13 @@ public class UserService {
 
     private List<User> users;
 
+    //закомениував бо після кожного запуску програми додає ці записи до бази
     @PostConstruct
     public void init() {
-        users.add(new User("userFirstName1", "userLastName1", "userEmail1@gmail.com", "12345678", "user1"));
-        users.add(new User("userFirstName2", "userLastName2", "userEmail2@gmail.com", "87654321", "user2"));
-        users.add(new User("userFirstName3", "userLastName3", "userEmail3@gmail.com", "13247586", "user3"));
-        repository.saveAll(users);
+//        users.add(new User("userFirstName1", "userLastName1", "userEmail1@gmail.com", "12345678", "user1"));
+//        users.add(new User("userFirstName2", "userLastName2", "userEmail2@gmail.com", "87654321", "user2"));
+//        users.add(new User("userFirstName3", "userLastName3", "userEmail3@gmail.com", "13247586", "user3"));
+//        repository.saveAll(users);
     }
 
     public List<User> getAll() {
