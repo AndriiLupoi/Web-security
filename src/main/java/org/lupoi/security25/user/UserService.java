@@ -22,9 +22,9 @@ public class UserService {
 
     @PostConstruct
     public void init() {
-        users.add(new User("hiadj", "firstaasd", "asd@gmail.com"));
-        users.add(new User("hiadj2", "firstaasd2", "asd2@gmail.com"));
-        users.add(new User("hiadj3", "firstaasd3", "asd3@gmail.com"));
+        users.add(new User("userFirstName1", "userLastName1", "userEmail1@gmail.com", "12345678", "user1"));
+        users.add(new User("userFirstName2", "userLastName2", "userEmail2@gmail.com", "87654321", "user2"));
+        users.add(new User("userFirstName3", "userLastName3", "userEmail3@gmail.com", "13247586", "user3"));
         repository.saveAll(users);
     }
 

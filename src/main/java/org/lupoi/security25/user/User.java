@@ -26,11 +26,15 @@ public class User {
     private String userFirstName;
     private String userLastName;
     private String email;
+    private String password;
+    private String nickname;
 
-    public User(String userFirstName, String userLastName, String email) {
+    public User(String userFirstName, String userLastName, String email, String password, String nickname) {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.email = email;
+        this.password = password;
+        this.nickname = nickname;
     }
 
     @Override
