@@ -1,0 +1,64 @@
+### GET all users
+GET http://localhost:8080/api/v1/users
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET all users bad creds
+GET http://localhost:8080/api/v1/users
+Authorization: Basic admin admin123
+Accept: application/json
+
+### GET user by id
+GET http://localhost:8080/api/v1/users/68d3c3205aa5ac99c91a528c
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO USER
+GET http://localhost:8080/api/v1/users/hello/user
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO ADMIN
+GET http://localhost:8080/api/v1/users/hello/admin
+Authorization: Basic admin admin
+Accept: application/json
+
+### GET HELLO UNKNOWN
+GET http://localhost:8080/api/v1/users/hello/unknown
+Authorization: Basic admin admin
+Accept: application/json
+
+
+### CREATE user
+POST http://localhost:8080/api/v1/users
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userFirstName": "John",
+  "userLastName": "Doe",
+  "email": "john.doe@example.com",
+  "password": "secret123",
+  "nickname": "johnny"
+}
+
+### UPDATE user
+PUT http://localhost:8080/api/v1/users
+Authorization: Basic admin admin
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "68dbafd278fc8af6bb1579a2",
+  "userFirstName": "Johnny",
+  "userLastName": "Doe",
+  "email": "johnny.doe@example.com",
+  "password": "newpass456",
+  "nickname": "john_updated"
+}
+
+### DELETE user
+DELETE http://localhost:8080/api/v1/users/68dbaff078fc8af6bb1579a3
+Authorization: Basic admin admin
+Accept: application/json
