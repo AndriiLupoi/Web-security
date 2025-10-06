@@ -28,12 +28,12 @@ public class UserRestController {
         return service.getById(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/del/{id}")
     public void delete(@PathVariable String id) {
         service.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping("/cr")
     public User create(@RequestBody User user) {
         return service.create(user);
     }
@@ -54,9 +54,9 @@ public class UserRestController {
         return "Hello Admin!";
     }
 
-    @GetMapping("hello/unknown")
+    @GetMapping("hello/superadmin")
     public String helloUnknown() {
-        return "Hello Unknown!";
+        return "Hello SuperAdmin!";
     }
 
 }
