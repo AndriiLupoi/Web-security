@@ -7,6 +7,7 @@ package org.lupoi.security25.user;/*
 */
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,45 +19,58 @@ public class UserRestController {
 
     private final UserService service;
 
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping
     public List<User> getUsers() {
         return service.getAll();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @GetMapping("/{id}")
     public User getOneUser(@PathVariable String id) {
         return service.getById(id);
     }
 
-    @DeleteMapping("/del/{id}")
+    @PreAuthorize("hasRole('SUPERADMIN')")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         service.deleteById(id);
     }
 
-    @PostMapping("/cr")
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping
     public User create(@RequestBody User user) {
         return service.create(user);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @PutMapping
     public User uptade(@RequestBody User user) {
         return service.uptade(user);
     }
 
-
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/hello/user")
     public String helloUser() {
         return "Hello User!";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("hello/admin")
     public String helloAdmin() {
         return "Hello Admin!";
     }
 
-    @GetMapping("hello/superadmin")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @GetMapping("hello/unknown")
     public String helloUnknown() {
-        return "Hello SuperAdmin!";
+        return "Hello unknown!";
     }
+
+    @GetMapping("hello/stranger")
+    public String helloStranger() {
+        return "Hello Stranger!";
+    }
+
 
 }

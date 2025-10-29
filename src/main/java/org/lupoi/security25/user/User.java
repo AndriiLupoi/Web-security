@@ -9,7 +9,6 @@ package org.lupoi.security25.user;/*
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Data
@@ -19,7 +18,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @ToString
-public class User {
+public class User extends AuditMetaData{
 
     @Id
     private String id;
@@ -29,6 +28,8 @@ public class User {
     private String email;
     private String password;
     private String nickname;
+
+
 
 
     public User(String userFirstName, String userLastName, String email, String password, String nickname) {
