@@ -1,4 +1,4 @@
-package org.lupoi.security25.user;/*
+package org.lupoi.security25.customer;/*
     @author Andrii
     @project security25
     @class AuditMetaData

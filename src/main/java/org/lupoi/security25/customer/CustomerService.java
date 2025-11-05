@@ -1,4 +1,4 @@
-package org.lupoi.security25.user;/*
+package org.lupoi.security25.customer;/*
     @author user
     @project security25
     @class UserService
@@ -14,11 +14,11 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class UserService {
+public class CustomerService {
 
-    private final UserRepository repository;
+    private final CustomerRepository repository;
 
-    private List<User> users;
+    private List<Customers> users;
 
     //закомениував бо після кожного запуску програми додає ці записи до бази
     @PostConstruct
@@ -29,11 +29,11 @@ public class UserService {
 //        repository.saveAll(users);
     }
 
-    public List<User> getAll() {
+    public List<Customers> getAll() {
         return repository.findAll();
     }
 
-    public User getById(String id) {
+    public Customers getById(String id) {
         return repository.findById(id).orElse(null);
     }
 
@@ -41,11 +41,11 @@ public class UserService {
         repository.deleteById(id);
     }
 
-    public User create(User user) {
+    public Customers create(Customers user) {
         return repository.save(user);
     }
 
-    public User uptade(User user) {
+    public Customers uptade(Customers user) {
 
 
         return repository.save(user);

@@ -1,4 +1,4 @@
-package org.lupoi.security25.user;/*
+package org.lupoi.security25.customer;/*
     @author user
     @project security25
     @class UserController
@@ -15,19 +15,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @AllArgsConstructor
-public class UserRestController {
+public class CustomerRestController {
 
-    private final UserService service;
+    private final CustomerService service;
 
     @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping
-    public List<User> getUsers() {
+    public List<Customers> getUsers() {
         return service.getAll();
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @GetMapping("/{id}")
-    public User getOneUser(@PathVariable String id) {
+    public Customers getOneUser(@PathVariable String id) {
         return service.getById(id);
     }
 
@@ -39,13 +39,13 @@ public class UserRestController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public User create(@RequestBody User user) {
+    public Customers create(@RequestBody Customers user) {
         return service.create(user);
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
     @PutMapping
-    public User uptade(@RequestBody User user) {
+    public Customers uptade(@RequestBody Customers user) {
         return service.uptade(user);
     }
 
