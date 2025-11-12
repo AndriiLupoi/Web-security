@@ -27,19 +27,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
 
-     @PostConstruct
-     void init() {
-          User user = User.builder()
-                  .firstName("John")
-                  .lastName("Lennon")
-                  .email("john@mail.com")
-                  .password(passwordEncoder.encode("password"))
-                  .enabled(true)
-                  .accountLocked(false)
-                  .roles(List.of(Role.USER))
-                  .build();
-         repository.save(user);
-  }
+//     @PostConstruct
+//     void init() {
+//          User user = User.builder()
+//                  .firstName("John")
+//                  .lastName("Lennon")
+//                  .email("john@mail.com")
+//                  .password(passwordEncoder.encode("password"))
+//                  .enabled(true)
+//                  .accountLocked(false)
+//                  .roles(List.of(Role.USER))
+//                  .build();
+//         repository.save(user);
+//  }
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
