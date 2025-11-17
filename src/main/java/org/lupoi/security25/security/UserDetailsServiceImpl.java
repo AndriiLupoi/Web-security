@@ -39,6 +39,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //                  .roles(List.of(Role.USER))
 //                  .build();
 //         repository.save(user);
+//
+//         User use1 = User.builder()
+//                 .firstName("Adic")
+//                 .lastName("Stomber")
+//                 .email("adic@mail.com")
+//                 .password(passwordEncoder.encode("passAdic"))
+//                 .enabled(true)
+//                 .accountLocked(false)
+//                 .roles(List.of(Role.SUPERADMIN))
+//                 .build();
+//         repository.save(use1);
 //  }
 
     @Override

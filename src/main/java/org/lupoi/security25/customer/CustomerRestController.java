@@ -19,49 +19,49 @@ public class CustomerRestController {
 
     private final CustomerService service;
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping
     public List<Customers> getUsers() {
         return service.getAll();
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPERADMIN')")
     @GetMapping("/{id}")
     public Customers getOneUser(@PathVariable String id) {
         return service.getById(id);
     }
 
-    @PreAuthorize("hasRole('SUPERADMIN')")
+    @PreAuthorize("hasAuthority('SUPERADMIN')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         service.deleteById(id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
     public Customers create(@RequestBody Customers user) {
         return service.create(user);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPERADMIN')")
     @PutMapping
     public Customers uptade(@RequestBody Customers user) {
         return service.uptade(user);
     }
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAuthority('USER')")
     @GetMapping("/hello/user")
     public String helloUser() {
         return "Hello User!";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("hello/admin")
     public String helloAdmin() {
         return "Hello Admin!";
     }
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
     @GetMapping("hello/unknown")
     public String helloUnknown() {
         return "Hello unknown!";
